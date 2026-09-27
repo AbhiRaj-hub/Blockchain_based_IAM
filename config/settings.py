@@ -99,6 +99,5 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
 LEDGER_SERVICE_URL = os.getenv("LEDGER_SERVICE_URL", "http://localhost:5001")
 LEDGER_INGEST_API_KEY = os.getenv("LEDGER_INGEST_API_KEY", "dev-ingest-key-change-me")
