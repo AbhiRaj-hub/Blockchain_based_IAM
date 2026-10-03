@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: secureaccess_iam
+      POSTGRES_USER: secureaccess
+      POSTGRES_PASSWORD: change-me
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  ledger_service:
+    build: ./ledger_service
+    restart: unless-stopped
+    env_file: ./ledger_service/.env
+    environment:
+      MONGO_URI: mongodb://mongo:27017
+    ports:
+      - "5001:5001"
+    depends_on:
+      - mongo
+
+  identity_service:
+    build: ./identity_service
+    restart: unless-stopped
+    env_file: ./identity_service/.env
+    environment:
+      POSTGRES_HOST: postgres
+      LEDGER_SERVICE_URL: http://ledger_service:5001
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - ledger_service
+
+volumes:
+  postgres_data:
+  mongo_data:
