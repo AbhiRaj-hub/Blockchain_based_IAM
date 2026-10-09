@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assets - SecureAccess Chain</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-brand">&#128274; SecureAccess</div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="identities.html">Identities</a>
+            <a href="access-control.html">Access Control</a>
+            <a href="assets.html" class="active">Assets</a>
+            <a href="audit.html">Audit</a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="#" id="logout-btn">Logout</a>
+        </div>
+    </div>
+    <div class="main-content">
+        <header class="topbar">
+            <h1>Assets</h1>
+            <div class="user-info">User</div>
+        </header>
+        <div class="content">
+            <div class="toolbar mb-4">
+                <button class="btn btn-primary">Add Asset</button>
+            </div>
+            <div class="stats-grid" id="assets-grid">
+                <!-- Assets loaded via JS, for now static dummy -->
+                <div class="stat-card">
+                    <h3>Document A</h3>
+                    <p>Type: Document</p>
+                    <p class="text-sm mt-2">Policies: 2</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Server X</h3>
+                    <p>Type: Infrastructure</p>
+                    <p class="text-sm mt-2">Policies: 5</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

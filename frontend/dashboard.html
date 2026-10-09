@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SecureAccess Chain</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-brand">&#128274; SecureAccess</div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="active">Dashboard</a>
+            <a href="identities.html">Identities</a>
+            <a href="access-control.html">Access Control</a>
+            <a href="assets.html">Assets</a>
+            <a href="audit.html">Audit</a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="#" id="logout-btn">Logout</a>
+        </div>
+    </div>
+    <div class="main-content">
+        <header class="topbar">
+            <h1>Dashboard</h1>
+            <div class="user-info" id="current-user">User</div>
+        </header>
+        <div class="content">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Identities</h3>
+                    <p id="stat-identities">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Policies</h3>
+                    <p id="stat-policies">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Access Grants</h3>
+                    <p id="stat-grants">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Sessions</h3>
+                    <p id="stat-sessions">0</p>
+                </div>
+            </div>
+            
+            <div class="dashboard-sections">
+                <div class="card">
+                    <h2>Recent Activity</h2>
+                    <div id="recent-activity" class="activity-list">Loading...</div>
+                </div>
+                <div class="card">
+                    <h2>Quick Actions</h2>
+                    <div class="quick-actions">
+                        <button class="btn btn-primary" onclick="window.location.href='identities.html'">Add Identity</button>
+                        <button class="btn btn-success" onclick="window.location.href='access-control.html'">Grant Access</button>
+                        <button class="btn btn-warning" onclick="window.location.href='audit.html'">Verify Chain</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
